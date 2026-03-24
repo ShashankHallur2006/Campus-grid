@@ -1,0 +1,11 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Authentication is currently bypassed in the app.
+    // Allowing all read and write access for development/demo purposes.
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
